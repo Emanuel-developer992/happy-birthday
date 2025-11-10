@@ -4,6 +4,7 @@ import { cn } from "../lib/utils";
 import { useState } from "react";
 import { SparklesText } from "../components/ui/sparkles-text";
 import { TypingAnimation } from "../components/ui/typing-animation";
+import SoundConfetti from "../components/SoundConffeti";
 
 export default function Portal() {
 
@@ -11,6 +12,7 @@ export default function Portal() {
 
     const toggle = () => {
         setHb(!hb)
+        SoundConfetti()
     }
 
     return (
