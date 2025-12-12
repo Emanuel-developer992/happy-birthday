@@ -1,7 +1,7 @@
 import { ConfettiSideCannons } from "../components/ConfettiSideCannons";
 import { DotPattern } from "../components/ui/dot-pattern";
 import { cn } from "../lib/utils";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SparklesText } from "../components/ui/sparkles-text";
 import { TypingAnimation } from "../components/ui/typing-animation";
 import SoundConfetti from "../components/SoundConffeti";
