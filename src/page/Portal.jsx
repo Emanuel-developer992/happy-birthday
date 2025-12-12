@@ -26,19 +26,22 @@ export default function Portal() {
             text: "Que o seu dia seja repleto de alegria, amor e momentos que aqueçam o coração. Você é uma pessoa especial, e merece tudo de melhor hoje e sempre.",
             att: "Com muito apreço, 💖",
             nameType: "Pessoa Especial"
-,       },
+            ,
+        },
         {
             type: 3,
             text: "Que seu dia venha cheio de risadas, bons momentos e tudo aquilo que faz a vida ficar mais leve. Você merece o melhor sempre.",
             att: "Um abraço, 🫂",
             nameType: "Amigos"
-,       },
+            ,
+        },
         {
             type: 4,
             text: "Que seu dia seja envolto em delicadeza, alegria e momentos que iluminem seu coração. Você merece cada gesto de carinho, cada sorriso sincero e toda a beleza que a vida pode oferecer.",
             att: "Com todo o meu amor, ❤️",
             nameType: "Romantico"
-,       },
+            ,
+        },
     ]
 
     useEffect(() => {
@@ -49,7 +52,7 @@ export default function Portal() {
 
         if (name) {
             setVarName(name)
-            if(type) {
+            if (type) {
                 const set = text.find(item => item.type == type);
                 settextObj(set)
             }
@@ -62,34 +65,43 @@ export default function Portal() {
         SoundConfetti()
     }
 
+    const ComponentTextAnimated = React.memo(() => {
+        return (
+            <>
+                <SparklesText className="z-19">Parabéns {varName}</SparklesText>
+                <br />
+                <TypingAnimation duration={50} className="typ-text">Feliz aniversário!</TypingAnimation>
+                <br />
+                <br />
+                <TypingAnimation duration={50} className="typ-text" delay={1500}>{textObj.text || "Que seu dia seja cheio de alegria, tranquilidade e momentos que aqueçam o coração. Você merece tudo de melhor, hoje e sempre."}</TypingAnimation>
+                <br />
+                <br />
+                <TypingAnimation duration={50} className="typ-text" delay={9300}>{textObj.att || "Com carinho, 🪐"}</TypingAnimation>
+            </>
+        )
+    })
+
     return (
         <div>
             {hb ? (
-                <>
-                    <SparklesText className="z-19">Parabéns {varName}</SparklesText>
-                    <br />
-                    <TypingAnimation duration={50} className="typ-text">Feliz aniversário!</TypingAnimation>
-                    <br />
-                    <br />
-                    <TypingAnimation duration={50} className="typ-text" delay={1500}>{textObj.text || "Que seu dia seja cheio de alegria, tranquilidade e momentos que aqueçam o coração. Você merece tudo de melhor, hoje e sempre."}</TypingAnimation>
-                    <br />
-                    <br />
-                    <TypingAnimation duration={50} className="typ-text" delay={9300}>{textObj.att || "Com carinho, 🪐"}</TypingAnimation>
-                </>
+                <ComponentTextAnimated />
             ) : (
-                <div className=" flex w-full h-full flex-col items-center justify-center ">
+                    <div className = " flex w-full h-full flex-col items-center justify-center ">
                     <DotPattern
-                        className={cn(
+                        className = {
+                        cn(
                             "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]"
-                        )}
+                        )
+                    }
                     />
-                    {/* <ConfettiFireworks toggle={toggle}/> */}
-                    <ConfettiSideCannons toggle={toggle} />
-                    <br />
-                    <text className="click-me">Clique me!</text>
-                </div>
-            )}
+            {/* <ConfettiFireworks toggle={toggle}/> */}
+            <ConfettiSideCannons toggle={toggle} />
+            <br />
+            <text className="click-me">Clique me!</text>
         </div>
+    )
+}
+        </div >
 
 
     )
